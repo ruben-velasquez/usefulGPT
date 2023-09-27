@@ -1,39 +1,46 @@
-import Image from "next/image";
-import { Gloock } from "next/font/google";
-import Button from "../buttons/button";
+"use client";
+import SidebarButton from "../buttons/sidebar-button";
+import { useState } from "react";
 
-const gloock = Gloock({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+export default function ChatSidebar() {
+  const [view, setView] = useState(true);
 
-export default function AboutUtilities() {
   return (
-    <section className="py-8 min-h-[calc(100vh-3.5rem)] px-[10px] md:px-4 flex items-center justify-center gap-8 relative">
-      <div className="absolute -z-50">
-        <Image
-          alt="background spiral effect"
-          src="/utilities-background.svg"
-          width={800}
-          height={800}
-        />
-      </div>
-      <div className="flex flex-col gap-4 justify-center items-left text-left max-w-[500px]">
-        <h1 className={`${gloock.className} text-6xl text-white`}>
-          Get to know the utilities
-        </h1>
-        <p className="text-gray-400 text-xl">
-          Use customised functionalities with tailor-made prompts to get better
-          results to your.
-        </p>
+    <>
+      <SidebarButton
+        disabled={view}
+        className={`disabled:opacity-0 opacity-100 transition-all absolute left-2 top-2 z-40 bg-chatgpt-midGray`}
+        onClick={(e) => setView(!view)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="icon icon-tabler icon-tabler-layout-sidebar text-white"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          strokeWidth="2"
+          stroke="currentColor"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+          <path d="M9 4l0 16"></path>
+        </svg>
+      </SidebarButton>
+      <aside
+        className={`h-full flex bg-chatgpt-darkGray w-80 p-4 transition-all z-50 ${
+          view ? "animate-showSidebar" : "absolute animate-hideSidebar"
+        } flex-col gap-3`}
+      >
         <div className="flex gap-2">
-          <Button href="#">
+          <SidebarButton className="col-span-2 flex-grow">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-message"
-              width="20"
-              height="20"
+              className="icon icon-tabler icon-tabler-plus text-slate-400"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
@@ -42,16 +49,31 @@ export default function AboutUtilities() {
               strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M8 9h8"></path>
-              <path d="M8 13h6"></path>
-              <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"></path>
+              <path d="M12 5l0 14"></path>
+              <path d="M5 12l14 0"></path>
             </svg>
-            Try now
-          </Button>
+            Request Utility
+          </SidebarButton>
+          <SidebarButton onClick={(e) => setView(!view)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-layout-sidebar text-slate-400"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+              <path d="M9 4l0 16"></path>
+            </svg>
+          </SidebarButton>
         </div>
-      </div>
-      <div className="bg-slate-900 w-80 rounded-xl p-4 flex flex-col gap-3">
-        <h3 className="text-slate-300 text-lg flex items-center gap-2">
+        <h3 className="text-slate-300 text-base flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-message-code"
@@ -74,11 +96,11 @@ export default function AboutUtilities() {
           Utilities
         </h3>
         <ul className="flex flex-col gap-3">
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
-            <h4 className="text-lg flex items-center gap-2">
+          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
+            <h4 className="text-base flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-pencil"
+                className="icon icon-tabler icon-tabler-pencil text-slate-300"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -95,11 +117,11 @@ export default function AboutUtilities() {
               Write a post
             </h4>
           </li>
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
-            <h4 className="text-lg flex items-center gap-2">
+          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
+            <h4 className="text-base flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-code"
+                className="icon icon-tabler icon-tabler-code text-slate-300"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -117,11 +139,11 @@ export default function AboutUtilities() {
               Translate code
             </h4>
           </li>
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
-            <h4 className="text-lg flex items-center gap-2">
+          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
+            <h4 className="text-base flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-book"
+                className="icon icon-tabler icon-tabler-book text-slate-300"
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -142,7 +164,7 @@ export default function AboutUtilities() {
             </h4>
           </li>
         </ul>
-      </div>
-    </section>
+      </aside>
+    </>
   );
 }

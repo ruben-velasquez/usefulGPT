@@ -13,7 +13,29 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        chatgpt: {
+          darkGray: "#202123",
+          midGray: "#4D4D4F",
+          gray: "#343541",
+          textBg: "#565869"
+        }
+      },
+      keyframes: {
+        hideSidebar: {
+          '0%': { transform: 'translateX(0rem)' },
+          '100%': { transform: 'translateX(-20rem)' },
+        },
+        showSidebar: {
+          '0%': { transform: 'translateX(-20rem)' },
+          '100%': { transform: 'translateX(0rem)' },
+        },
+       }
     },
+    animation: {
+      'hideSidebar': 'hideSidebar 1s ease-in-out forwards',
+      'showSidebar': 'showSidebar 1s ease-in-out forwards',
+     }
   },
   plugins: [],
 }
