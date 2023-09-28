@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         chatgpt: {
+          input: "#40414F",
           darkGray: "#202123",
           midGray: "#4D4D4F",
           gray: "#343541",

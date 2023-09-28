@@ -96,72 +96,78 @@ export default function ChatSidebar() {
           Utilities
         </h3>
         <ul className="flex flex-col gap-3">
-          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
-            <h4 className="text-base flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-pencil text-slate-300"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
-                <path d="M13.5 6.5l4 4"></path>
-              </svg>
-              Write a post
-            </h4>
+          <li>
+            <a href="/chat/write-a-post" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+              <h4 className="text-base flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-pencil text-slate-300"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+                  <path d="M13.5 6.5l4 4"></path>
+                </svg>
+                Write a post
+              </h4>
+            </a>
           </li>
-          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
-            <h4 className="text-base flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-code text-slate-300"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M7 8l-4 4l4 4"></path>
-                <path d="M17 8l4 4l-4 4"></path>
-                <path d="M14 4l-4 16"></path>
-              </svg>
-              Translate code
-            </h4>
+          <li>
+            <a href="/chat/code-translation" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+              <h4 className="text-base flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-code text-slate-300"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M7 8l-4 4l4 4"></path>
+                  <path d="M17 8l4 4l-4 4"></path>
+                  <path d="M14 4l-4 16"></path>
+                </svg>
+                Translate code
+              </h4>
+            </a>
           </li>
-          <li className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl">
-            <h4 className="text-base flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-book text-slate-300"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                <path d="M3 6l0 13"></path>
-                <path d="M12 6l0 13"></path>
-                <path d="M21 6l0 13"></path>
-              </svg>
-              Make a story
-            </h4>
+          <li>
+            <a href="/chat/make-a-story" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+              <h4 className="text-base flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-book text-slate-300"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+                  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
+                  <path d="M3 6l0 13"></path>
+                  <path d="M12 6l0 13"></path>
+                  <path d="M21 6l0 13"></path>
+                </svg>
+                Make a story
+              </h4>
+            </a>
           </li>
         </ul>
       </aside>
