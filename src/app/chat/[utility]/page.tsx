@@ -6,6 +6,7 @@ import TextField from "@/components/Inputs/text-field";
 import TextArea from "@/components/Inputs/text-area";
 import Button from "@/components/buttons/chat-button";
 import CodeBlock from "@/components/blocks/code-block";
+import { useState } from "react";
 
 const gloock = Gloock({
   weight: "400",
@@ -18,16 +19,14 @@ export default function UtilityChat({
 }: {
   params: { utility: string };
 }) {
+  const [answer, setAnswer] = useState("");
   const currentUtility = utilities.find(
     (utility) => utility.id === params.utility
   );
 
-  const exampleIAgeneratedText =
-    'Este es el código ´´´\nconsole.log("Something");\n´´´';
-
   const resultingText: React.JSX.Element = (
     <div className="w-full grid gap-2">
-      {exampleIAgeneratedText.split("´´´").map((textSnippet, index) => (
+      {answer.split("´´´")?.map((textSnippet, index) => (
         <>
           {index % 2 == 1 ? (
             <CodeBlock key={index} code={textSnippet} />
@@ -44,7 +43,7 @@ export default function UtilityChat({
       <div className="z-10 flex flex-col overflow-y-scroll w-full h-full relative">
         <div className="w-full h-20 p-5 flex items-center justify-center bg-chatgpt-gray sticky top-0">
           <h1 className={`text-gray-400 text-base ${gloock.className}`}>
-            UsefulGPT
+            UsefulGPT: {currentUtility?.name}
           </h1>
         </div>
         <div className="flex-grow relative w-full flex flex-col justify-start items-center text-left text-gray-200 py-5 px-32 bg-chatgpt-textBg">
@@ -71,7 +70,7 @@ export default function UtilityChat({
             </svg>
           </div>
 
-          {resultingText}
+          {answer == "" ? (<p className="w-full">The answer will be displayed here</p>) : resultingText}
         </div>
         <form
           onSubmit={(e) => {
