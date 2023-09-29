@@ -1,7 +1,7 @@
 export const utilities: Utility[] = [
   {
     id: "make-a-story",
-    system: "Make stories about any topic, your response must have a title (the story title) and all the content of their story",
+    system: "Your answer must include a title (the story title) and all the content of your story. If you can't make a story about the information given, you must say: \"Error\".",
     prompt: "Write a {adjective} and {adjective} story about {noun}.",
     fields: [
       {
@@ -20,7 +20,7 @@ export const utilities: Utility[] = [
   },
   {
     id: "code-translation",
-    system: "You must translate code between programming languages adapting syntax and libraries to the target language. Your response must be like this:\n[TargetLanguage]\n[Code] ",
+    system: "You have to translate code between programming languages, adapting the syntax and libraries to the target language. If you don't know the language or it doesn't exist, you have to say: \"Error\". If all goes well, your answer must contain only the resulting code.",
     prompt:
       "Translate the following code from {sourceLanguage} to {targetLanguage}: {code}.",
     fields: [
@@ -46,7 +46,7 @@ export const utilities: Utility[] = [
   },
   {
     id: "write-a-post",
-    system: "Create professional blog posts with the provided title, content, and optional tags",
+    system: "Create professional blog posts using the provided title, content and optional tags. If you can't create a post with the information provided, you'll have to say: \"Error\".",
     prompt: "Write a professional blog post with the following details:\n\nTitle: {title}\nContent: {postContent}\nTags: {tags}",
     fields: [
       {

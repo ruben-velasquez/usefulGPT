@@ -30,7 +30,7 @@ export default function ChatSidebar() {
         </svg>
       </SidebarButton>
       <aside
-        className={`h-full flex bg-chatgpt-darkGray w-80 p-4 transition-all z-50 ${
+        className={`h-full flex bg-chatgpt-darkGray w-80 min-w-[20rem] p-4 transition-all z-50 ${
           view ? "animate-showSidebar" : "absolute animate-hideSidebar"
         } flex-col gap-3`}
       >
