@@ -22,9 +22,9 @@ export const utilities: Utility[] = [
   {
     id: "code-translation",
     name: "Code translation",
-    system: "You have to translate code between programming languages, adapting the syntax and libraries to the target language. If you don't know the language or it doesn't exist, you have to say: \"Error\". If all goes well, your answer must contain only the resulting code.",
+    system: "You have to translate code between programming languages, adapting the syntax and libraries to the target language. If you don't know the language or it doesn't exist, you have to say: \"Error\". If all goes well, your answer must contain only the resulting code. If the response is ok, you need to return the code between three quotes like this:  '''\ncode\n'''. You must add a line break at the end of each statement, acting as a code formatter. Instead of putting the programming language after the three quotes put it in a comment at the beginning of the code like: '''\n\/\/ Language\ncode\n\'\'\'",
     prompt:
-      "Translate the following code from {sourceLanguage} to {targetLanguage}: {code}.",
+      "Translate the following code from {sourceLanguage} to {targetLanguage}: {code}",
     fields: [
       {
         id: "sourceLanguage",
@@ -94,7 +94,9 @@ type UtilityField = {
 // Gets all the utilityField names enclosed in brackets in the prompt and replaces them with
 // the corresponding content
 // e.g. The {color} leaf is beautiful => The red leaf is beautiful
-export function JoinPrompt(utility: Utility): string {
+export function JoinPrompt(utility: Utility | undefined): string {
+  if(utility == undefined) return "Error";
+  
   const prompt = utility.prompt;
   const fields = utility.fields;
 
