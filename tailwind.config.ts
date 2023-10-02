@@ -31,12 +31,12 @@ const config: Config = {
           '0%': { transform: 'translateX(-20rem)' },
           '100%': { transform: 'translateX(0rem)' },
         },
-       }
+       },
+       animation: {
+         'hideSidebar': 'hideSidebar 1s ease-in-out forwards',
+         'showSidebar': 'showSidebar 1s ease-in-out forwards',
+        }
     },
-    animation: {
-      'hideSidebar': 'hideSidebar 1s ease-in-out forwards',
-      'showSidebar': 'showSidebar 1s ease-in-out forwards',
-     }
   },
   plugins: [],
 }
