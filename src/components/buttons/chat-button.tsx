@@ -10,7 +10,7 @@ export default function ChatButton({ href, children, onClick, active=true } : Bu
   }
 
   return (
-    <a href={href || "#"} onClick={onClickHandler || ((e) => {})} >
+    <a href={href || "#"} onClick={onClickHandler || ((e) => {})} className="w-fit rounded-full">
         <button disabled={!active} className="flex items-center justify-center gap-2 w-fit bg-slate-200 transition-all font-bold py-3 px-8 rounded-full text-slate-900">
             { children }
         </button>
