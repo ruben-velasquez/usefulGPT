@@ -6,6 +6,7 @@ export async function generatePrompts(
 ) {
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
+    
   });
   
   let response;

@@ -30,9 +30,9 @@ export default function UtilityChat({
       {answer.split("\'\'\'")?.map((textSnippet, index) => (
         <div key={index}>
           {index % 2 == 1 ? (
-            <CodeBlock code={textSnippet} />
+            <CodeBlock code={textSnippet.trim()} />
           ) : (
-            <p>{textSnippet}</p>
+            <p className="whitespace-pre-line">{textSnippet.trim()}</p>
           )}
         </div>
       ))}
@@ -70,7 +70,13 @@ export default function UtilityChat({
       }),
     });
 
-    setAnswer(await response.text());
+    const text = (await response.json()).message.trim();
+
+    console.log(text);
+
+    alert("Revise la consola")
+
+    setAnswer(text);
 
     setLoading(false);
   };
