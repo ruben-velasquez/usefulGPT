@@ -1,20 +1,20 @@
 import OpenAI from "openai";
 
-
 export async function generatePrompts(
-  messages: Array<Object>
+  messages: Array<Object>,
+  apiKey: string
 ) {
   const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-    
+    apiKey: apiKey,
   });
-  
+
   let response;
 
   try {
     response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages: messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
+      messages:
+        messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
     });
   } catch (error) {
     console.log(error);

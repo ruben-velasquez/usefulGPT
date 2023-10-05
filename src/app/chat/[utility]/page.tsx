@@ -21,13 +21,14 @@ export default function UtilityChat({
 }) {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
+
   const currentUtility = utilities.find(
     (utility) => utility.id === params.utility
   );
 
   const resultingText: React.JSX.Element = (
     <div className="w-full grid gap-2">
-      {answer.split("\'\'\'")?.map((textSnippet, index) => (
+      {answer.split("'''")?.map((textSnippet, index) => (
         <div key={index}>
           {index % 2 == 1 ? (
             <CodeBlock code={textSnippet.trim()} />
@@ -42,11 +43,19 @@ export default function UtilityChat({
   const submitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
+    if (!currentUtility) return;
+    
+    const apiKey = localStorage.getItem("ApiKey");
+
+    if(!apiKey) {
+      alert("Please, provide an OpenAI API Key via:\nhttps://platform.openai.com/account/api-keys")
+      return;
+    }
+    
     setLoading(true);
 
-    if (!currentUtility) return;
-
     const formData = new FormData(e.target as HTMLFormElement);
+
 
     const data = Object.fromEntries(formData.entries());
 
@@ -67,14 +76,11 @@ export default function UtilityChat({
       method: "POST",
       body: JSON.stringify({
         messages,
+        apiKey,
       }),
     });
 
     const text = (await response.json()).message.trim();
-
-    console.log(text);
-
-    alert("Revise la consola")
 
     setAnswer(text);
 
@@ -146,7 +152,7 @@ export default function UtilityChat({
                   width={24}
                   height={24}
                   viewBox="0 0 24 24"
-                  stroke-width={2}
+                  strokeWidth={2}
                   stroke="currentColor"
                   fill="none"
                   strokeLinecap="round"

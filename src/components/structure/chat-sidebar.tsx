@@ -1,9 +1,15 @@
 "use client";
 import SidebarButton from "../buttons/sidebar-button";
 import { useState } from "react";
+import ButtonInput from "../Inputs/button-input";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
+
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    const apiKey = event.target.value;
+    localStorage.setItem("ApiKey", apiKey);
+  };
 
   return (
     <>
@@ -95,9 +101,12 @@ export default function ChatSidebar() {
           </svg>
           Utilities
         </h3>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 flex-grow">
           <li>
-            <a href="/chat/write-a-post" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+            <a
+              href="/chat/write-a-post"
+              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+            >
               <h4 className="text-base flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +129,10 @@ export default function ChatSidebar() {
             </a>
           </li>
           <li>
-            <a href="/chat/code-translation" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+            <a
+              href="/chat/code-translation"
+              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+            >
               <h4 className="text-base flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +156,10 @@ export default function ChatSidebar() {
             </a>
           </li>
           <li>
-            <a href="/chat/make-a-story" className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block">
+            <a
+              href="/chat/make-a-story"
+              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+            >
               <h4 className="text-base flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,6 +185,26 @@ export default function ChatSidebar() {
             </a>
           </li>
         </ul>
+        <div className="w-full h-fit p-4 border-t border-chatgpt-textBg">
+          <ButtonInput value={localStorage.getItem("ApiKey") || ""} onChange={handleInputChange} placeholder="Your API key">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-key"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z"></path>
+              <path d="M15 9h.01"></path>
+            </svg>
+          </ButtonInput>
+        </div>
       </aside>
     </>
   );
