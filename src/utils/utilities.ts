@@ -1,7 +1,7 @@
 export const utilities: Utility[] = [
   {
     id: "make-a-story",
-    name: "Make A story",
+    name: "Make a story",
     system: "Your answer must include a title (the story title) and all the content of your story. If you can't make a story about the information given, you must say: \"Error\".",
     prompt: "Write a {adjective} and {adjective} story about {noun}.",
     fields: [

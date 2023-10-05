@@ -29,7 +29,7 @@ export default function Hero() {
         things.
       </p>
       <div className="flex gap-2">
-        <Button href="#">
+        <Button href="/chat">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-message"

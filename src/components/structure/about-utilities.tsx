@@ -24,11 +24,11 @@ export default function AboutUtilities() {
           Get to know the utilities
         </h1>
         <p className="text-gray-400 text-xl">
-          Use customised functionalities with tailor-made prompts to get better
+          Use customized functionalities with tailor-made prompts to get better
           results to your.
         </p>
         <div className="flex gap-2">
-          <Button href="#">
+          <Button href="/chat">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-message"

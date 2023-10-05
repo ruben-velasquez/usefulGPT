@@ -1,12 +1,16 @@
 "use client";
+import Link from "next/link";
 import SidebarButton from "../buttons/sidebar-button";
 import { useState } from "react";
 import ButtonInput from "../Inputs/button-input";
+// import { utilities } from "@/utils/utilities";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
 
-  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     const apiKey = event.target.value;
     localStorage.setItem("ApiKey", apiKey);
   };
@@ -102,8 +106,36 @@ export default function ChatSidebar() {
           Utilities
         </h3>
         <ul className="flex flex-col gap-3 flex-grow">
+          {/*utilities.map((utility, index) => (
+            <li key={index}>
+              <Link
+                href="/chat/write-a-post"
+                className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+              >
+                <h4 className="text-base flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-pencil text-slate-300"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+                    <path d="M13.5 6.5l4 4"></path>
+                  </svg>
+                  {utility.name}
+                </h4>
+              </Link>
+            </li>
+          ))*/}
           <li>
-            <a
+            <Link
               href="/chat/write-a-post"
               className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
             >
@@ -126,10 +158,10 @@ export default function ChatSidebar() {
                 </svg>
                 Write a post
               </h4>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/chat/code-translation"
               className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
             >
@@ -153,10 +185,10 @@ export default function ChatSidebar() {
                 </svg>
                 Translate code
               </h4>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/chat/make-a-story"
               className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
             >
@@ -182,11 +214,15 @@ export default function ChatSidebar() {
                 </svg>
                 Make a story
               </h4>
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="w-full h-fit p-4 border-t border-chatgpt-textBg">
-          <ButtonInput value={localStorage.getItem("ApiKey") || ""} onChange={handleInputChange} placeholder="Your API key">
+          <ButtonInput
+            value={localStorage.getItem("ApiKey") || ""}
+            onChange={handleInputChange}
+            placeholder="Your API key"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-key"
