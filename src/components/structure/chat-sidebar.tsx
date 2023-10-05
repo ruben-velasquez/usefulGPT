@@ -3,7 +3,7 @@ import Link from "next/link";
 import SidebarButton from "../buttons/sidebar-button";
 import { useState } from "react";
 import ButtonInput from "../Inputs/button-input";
-// import { utilities } from "@/utils/utilities";
+import { utilities } from "@/utils/utilities";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
@@ -106,18 +106,18 @@ export default function ChatSidebar() {
           Utilities
         </h3>
         <ul className="flex flex-col gap-3 flex-grow">
-          {/*utilities.map((utility, index) => (
+          {utilities.map((utility, index) => (
             <li key={index}>
               <Link
-                href="/chat/write-a-post"
+                href={`/chat/${utility.id}`}
                 className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
               >
                 <h4 className="text-base flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-pencil text-slate-300"
-                    width="20"
-                    height="20"
+                    className="icon icon-tabler icon-tabler-message-dots text-slate-300"
+                    width={24}
+                    height={24}
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                     stroke="currentColor"
@@ -126,96 +126,16 @@ export default function ChatSidebar() {
                     strokeLinejoin="round"
                   >
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
-                    <path d="M13.5 6.5l4 4"></path>
+                    <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"></path>
+                    <path d="M12 11l0 .01"></path>
+                    <path d="M8 11l0 .01"></path>
+                    <path d="M16 11l0 .01"></path>
                   </svg>
                   {utility.name}
                 </h4>
               </Link>
             </li>
-          ))*/}
-          <li>
-            <Link
-              href="/chat/write-a-post"
-              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
-            >
-              <h4 className="text-base flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-pencil text-slate-300"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
-                  <path d="M13.5 6.5l4 4"></path>
-                </svg>
-                Write a post
-              </h4>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/chat/code-translation"
-              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
-            >
-              <h4 className="text-base flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-code text-slate-300"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M7 8l-4 4l4 4"></path>
-                  <path d="M17 8l4 4l-4 4"></path>
-                  <path d="M14 4l-4 16"></path>
-                </svg>
-                Translate code
-              </h4>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/chat/make-a-story"
-              className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
-            >
-              <h4 className="text-base flex items-center gap-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-book text-slate-300"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"></path>
-                  <path d="M3 6l0 13"></path>
-                  <path d="M12 6l0 13"></path>
-                  <path d="M21 6l0 13"></path>
-                </svg>
-                Make a story
-              </h4>
-            </Link>
-          </li>
+          ))}
         </ul>
         <div className="w-full h-fit p-4 border-t border-chatgpt-textBg">
           <ButtonInput
