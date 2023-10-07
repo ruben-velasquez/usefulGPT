@@ -1,26 +1,28 @@
 export const utilities: Utility[] = [
   {
     id: "make-a-story",
+    chatName: "{title}",
     name: "Make a story",
     system: "Your answer must include a title (the story title) and all the content of your story. If you can't make a story about the information given, you must say: \"Error\".",
-    prompt: "Write a {adjective} and {adjective} story about {noun}.",
+    prompt: "Write a story named as {title}, with the following description: {description}",
     fields: [
       {
-        id: "adjective",
-        name: "Adjective",
+        id: "title",
+        name: "Title",
         type: "text",
-        placeholder: "Enter an adjective",
+        placeholder: "Enter the title of your story",
       },
       {
-        id: "noun",
-        name: "Noun",
+        id: "description",
+        name: "Story Description",
         type: "text",
-        placeholder: "Enter a noun",
+        placeholder: "Enter a description of the story",
       },
     ],
   },
   {
     id: "code-translation",
+    chatName: "Code from {sourceLanguage} to {targetLanguage}",
     name: "Code translation",
     system: "You have to translate code between programming languages, adapting the syntax and libraries to the target language. If you don't know the language or it doesn't exist, you have to say: \"Error\". If all goes well, your answer must contain only the resulting code. If the response is ok, you need to return the code between three quotes like this:  '''\ncode\n'''. You must add a line break at the end of each statement, acting as a code formatter. Instead of putting the programming language after the three quotes put it in a comment at the beginning of the code like: '''\n\/\/ Language\ncode\n\'\'\'",
     prompt:
@@ -48,6 +50,7 @@ export const utilities: Utility[] = [
   },
   {
     id: "write-a-post",
+    chatName: "{title}",
     name: "Write a post",
     system: "Create professional blog posts using the provided title, content and optional tags. If you can't create a post with the information provided, you'll have to say: \"Error\".",
     prompt: "Write a professional blog post with the following details:\n\nTitle: {title}\nContent: {postContent}\nTags: {tags}",
@@ -77,6 +80,7 @@ export const utilities: Utility[] = [
 
 type Utility = {
   id: string;
+  chatName: string;
   name: string;
   system: string;
   prompt: string;
@@ -109,4 +113,21 @@ export function JoinPrompt(utility: Utility | undefined): string {
   });
 
   return joinedPrompt;
+}
+
+export function JoinChatName(utility: Utility | undefined): string {
+  if(utility == undefined) return "Error";
+  
+  const chatName = utility.chatName;
+  const fields = utility.fields;
+
+  let joinedChatName = chatName;
+
+  fields.forEach((field) => {
+    const fieldName = `{${field.id}}`;
+    const fieldValue = field.content || "";
+    joinedChatName = joinedChatName.replace(fieldName, fieldValue);
+  });
+
+  return joinedChatName;
 }

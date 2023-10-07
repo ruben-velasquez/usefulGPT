@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { Gloock } from "next/font/google";
-import { utilities, JoinPrompt } from "../../../utils/utilities";
+import { utilities, JoinPrompt, JoinChatName } from "../../../utils/utilities";
+import { AddChat } from "@/utils/history";
 import TextField from "@/components/Inputs/text-field";
 import TextArea from "@/components/Inputs/text-area";
 import Button from "@/components/buttons/chat-button";
-import CodeBlock from "@/components/blocks/code-block";
+import { CodeblockParser } from "@/utils/codeblock-parser";
 import { useState } from "react";
 
 const gloock = Gloock({
@@ -26,36 +27,25 @@ export default function UtilityChat({
     (utility) => utility.id === params.utility
   );
 
-  const resultingText: React.JSX.Element = (
-    <div className="w-full grid gap-2">
-      {answer.split("'''")?.map((textSnippet, index) => (
-        <div key={index}>
-          {index % 2 == 1 ? (
-            <CodeBlock code={textSnippet.trim()} />
-          ) : (
-            <p className="whitespace-pre-line">{textSnippet.trim()}</p>
-          )}
-        </div>
-      ))}
-    </div>
-  );
+  const resultingText = CodeblockParser(answer);
 
   const submitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!currentUtility) return;
-    
+
     const apiKey = localStorage.getItem("ApiKey");
 
-    if(!apiKey) {
-      alert("Please, provide an OpenAI API Key via:\nhttps://platform.openai.com/account/api-keys")
+    if (!apiKey) {
+      alert(
+        "Please, provide an OpenAI API Key via:\nhttps://platform.openai.com/account/api-keys"
+      );
       return;
     }
-    
+
     setLoading(true);
 
     const formData = new FormData(e.target as HTMLFormElement);
-
 
     const data = Object.fromEntries(formData.entries());
 
@@ -85,6 +75,8 @@ export default function UtilityChat({
     setAnswer(text);
 
     setLoading(false);
+
+    AddChat(JoinChatName(currentUtility), text);
   };
 
   return (

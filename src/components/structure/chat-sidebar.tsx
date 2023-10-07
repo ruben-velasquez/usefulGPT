@@ -1,12 +1,20 @@
 "use client";
 import Link from "next/link";
 import SidebarButton from "../buttons/sidebar-button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
+import { GetHistoryChats, DeleteChat } from "@/utils/history";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
+  const [apiKeyItem, setApiKeyItem] = useState("");
+  const history = GetHistoryChats();
+
+  useEffect(() => {
+    // Perform localStorage action
+    setApiKeyItem(localStorage.getItem("ApiKey") || "");
+  }, []);
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (
     event
@@ -105,7 +113,7 @@ export default function ChatSidebar() {
           </svg>
           Utilities
         </h3>
-        <ul className="flex flex-col gap-3 flex-grow">
+        <ul className="flex flex-col gap-3">
           {utilities.map((utility, index) => (
             <li key={index}>
               <Link
@@ -131,7 +139,60 @@ export default function ChatSidebar() {
                     <path d="M8 11l0 .01"></path>
                     <path d="M16 11l0 .01"></path>
                   </svg>
-                  {utility.name}
+                  <span className="whitespace-nowrap overflow-hidden w-[80%] bg-gradient-to-r from-white via-white to-transparent text-transparent bg-clip-text">
+                    {utility.name}
+                  </span>
+                </h4>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <h3 className="text-slate-300 text-base flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon icon-tabler icon-tabler-history"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 8l0 4l2 2"></path>
+            <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
+          </svg>
+          History
+        </h3>
+        <ul className="flex flex-col gap-3 flex-grow">
+          {history.chats.map((chat, index) => (
+            <li key={index}>
+              <Link
+                href={`/chat/history/${chat.id}`}
+                className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+              >
+                <h4 className="text-base flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-messages"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                    stroke-width={2}
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"></path>
+                    <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"></path>
+                  </svg>
+                  <span className="whitespace-nowrap overflow-hidden w-80 bg-gradient-to-r from-white via-white to-transparent text-transparent bg-clip-text">
+                    {chat.title}
+                  </span>
                 </h4>
               </Link>
             </li>
@@ -139,7 +200,7 @@ export default function ChatSidebar() {
         </ul>
         <div className="w-full h-fit p-4 border-t border-chatgpt-textBg">
           <ButtonInput
-            value={localStorage.getItem("ApiKey") || ""}
+            value={apiKeyItem}
             onChange={handleInputChange}
             placeholder="Your API key"
           >
