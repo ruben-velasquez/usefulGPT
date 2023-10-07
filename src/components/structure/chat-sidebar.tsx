@@ -113,7 +113,7 @@ export default function ChatSidebar() {
           </svg>
           Utilities
         </h3>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3 overflow-y-scroll">
           {utilities.map((utility, index) => (
             <li key={index}>
               <Link
@@ -166,7 +166,7 @@ export default function ChatSidebar() {
           </svg>
           History
         </h3>
-        <ul className="flex flex-col gap-3 flex-grow">
+        <ul className="flex flex-col gap-3 flex-grow overflow-y-scroll">
           {history.chats.map((chat, index) => (
             <li key={index}>
               <Link
