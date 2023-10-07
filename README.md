@@ -19,7 +19,7 @@ Or
 
 ## How to add utilities?
 
-Para añadir utilidades tienes que ir al archivo ```src/utils/utilities.ts``` y modificar el array con los datos descritos en el tipo ```Utility```, una utilidad suele verse así:
+To add utilities you have to go to the file ```src/utils/utilities.ts``` and modify the array with the data described in the ```Utility``` type, a utility usually looks like this:
 
     {
       id: "make-a-story",
