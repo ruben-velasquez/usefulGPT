@@ -198,7 +198,7 @@ export default function ChatSidebar() {
             </li>
           ))}
         </ul>
-        <div className="w-full h-fit p-4 border-t border-chatgpt-textBg">
+        <div className="w-full h-fit p-4 pb-0 border-t border-chatgpt-textBg">
           <ButtonInput
             value={apiKeyItem}
             onChange={handleInputChange}
