@@ -1,4 +1,6 @@
-import ChatSidebar from "@/components/structure/chat-sidebar" 
+import ChatSidebar from "@/components/structure/chat-sidebar";
+
+export const dynamic = 'force-dynamic'
 
 export default function ChatLayout({ children } : { children:React.ReactNode }) {
   return (
