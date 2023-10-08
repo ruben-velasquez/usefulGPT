@@ -10,7 +10,7 @@ export default function ButtonInput({
       <input
         placeholder={placeholder}
         type="password"
-        value={value}
+        defaultValue={value}
         onChange={onChange}
         className="w-full h-full bg-transparent outline-none text-xs border-b border-transparent transition-all focus:border-b-white"
       />
