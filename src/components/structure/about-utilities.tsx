@@ -21,7 +21,10 @@ export default function AboutUtilities() {
       </div>
       <div className="flex flex-col gap-4 justify-center items-left text-left max-w-[500px]">
         <h1 className={`${gloock.className} text-6xl text-white`}>
-          Get to know the utilities
+          Get to know the{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">
+            utilities
+          </span>
         </h1>
         <p className="text-gray-400 text-xl">
           Use customized functionalities with tailor-made prompts to get better
@@ -50,7 +53,7 @@ export default function AboutUtilities() {
           </Button>
         </div>
       </div>
-      <div className="bg-slate-900 w-80 rounded-xl p-4 flex flex-col gap-3">
+      <div className="bg-chatgpt-darkGray w-80 rounded-xl p-4 flex flex-col gap-3">
         <h3 className="text-slate-300 text-lg flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +77,7 @@ export default function AboutUtilities() {
           Utilities
         </h3>
         <ul className="flex flex-col gap-3">
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
+          <li className="text-white p-3 rounded-xl">
             <h4 className="text-lg flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,10 +95,12 @@ export default function AboutUtilities() {
                 <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
                 <path d="M13.5 6.5l4 4"></path>
               </svg>
-              Write a post
+              <span className="whitespace-nowrap overflow-hidden w-[80%] bg-gradient-to-r from-white via-white to-transparent text-transparent bg-clip-text">
+                Write a post
+              </span>
             </h4>
           </li>
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
+          <li className="text-white p-3 rounded-xl">
             <h4 className="text-lg flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,10 +119,12 @@ export default function AboutUtilities() {
                 <path d="M17 8l4 4l-4 4"></path>
                 <path d="M14 4l-4 16"></path>
               </svg>
-              Translate code
+              <span className="whitespace-nowrap overflow-hidden w-[80%] bg-gradient-to-r from-white via-white to-transparent text-transparent bg-clip-text">
+                Translate code
+              </span>
             </h4>
           </li>
-          <li className="bg-slate-800 text-white p-3 rounded-xl">
+          <li className="text-white p-3 rounded-xl">
             <h4 className="text-lg flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +145,9 @@ export default function AboutUtilities() {
                 <path d="M12 6l0 13"></path>
                 <path d="M21 6l0 13"></path>
               </svg>
-              Make a story
+              <span className="whitespace-nowrap overflow-hidden w-[80%] bg-gradient-to-r from-white via-white to-transparent text-transparent bg-clip-text">
+                Make a story
+              </span>
             </h4>
           </li>
         </ul>

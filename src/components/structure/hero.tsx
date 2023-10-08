@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Gloock } from "next/font/google";
 import Button from "../buttons/button";
 
@@ -11,18 +10,10 @@ const gloock = Gloock({
 export default function Hero() {
   return (
     <section className="py-3 md:px-[10vw] min-h-[calc(100vh-3.5rem)] relative flex flex-col gap-4 items-center justify-center">
-      <div className="absolute -z-50">
-        <Image
-          alt="background blur effect"
-          src="/hero-svg-background.svg"
-          width={600}
-          height={300}
-        />
-      </div>
       <h1
         className={`${gloock.className} max-w-[600px] text-6xl text-center text-white`}
       >
-        A personalized experience with AI
+        A personalized <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">experience with AI</span>
       </h1>
       <p className="text-gray-400">
         Let the AI tell you stories, make your homeworks and even more awesome
