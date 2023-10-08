@@ -16,6 +16,12 @@ const gloock = Gloock({
   display: "swap",
 });
 
+export async function generateStaticParams() {
+  return utilities.map((utility) => ({
+    utility: utility.id,
+  }))
+}
+
 export default function UtilityChat({
   params,
 }: {
