@@ -70,8 +70,9 @@ export default function UtilityChat({
         apiKey,
       }),
     });
-
-    const text = (await response.json()).message.trim();
+  
+    const json = await response.json();
+    const text = json.message.trim();
 
     setAnswer(text);
 
