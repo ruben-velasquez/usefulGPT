@@ -1,15 +1,22 @@
-import { generatePrompts } from "@/utils/openai";
-import { NextResponse } from "next/server";
+import { OpenAIStream, StreamingTextResponse } from "ai";
+import { Configuration, OpenAIApi } from "openai-edge";
 
-export async function POST(request: Request) {
-  const body = (await request.json()) as PromptRequest;
+export const runtime = "edge";
 
-  const streamResponse = await generatePrompts(body.messages, body.apiKey);
+export async function POST(req: Request) {
+  const { messages, apiKey } = await req.json();
 
-  return streamResponse;
+  const config = new Configuration({
+    apiKey: apiKey,
+  });
+  const openai = new OpenAIApi(config);
+
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    stream: true,
+    messages,
+  });
+
+  const stream = OpenAIStream(response);
+  return new StreamingTextResponse(stream);
 }
-
-type PromptRequest = {
-  messages: Array<Object>;
-  apiKey: string;
-};

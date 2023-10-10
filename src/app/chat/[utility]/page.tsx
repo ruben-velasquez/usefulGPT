@@ -70,7 +70,7 @@ export default function UtilityChat({
         apiKey,
       }),
     });
-  
+
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -84,17 +84,22 @@ export default function UtilityChat({
     const reader = _data.getReader();
     const decoder = new TextDecoder();
     let done = false;
+    let saved = false;
 
     while (!done) {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
-      setAnswer((prev) => prev + chunkValue);
+      setAnswer((prev) => {
+        if (done && !saved) {
+          saved = true;
+          AddChat(JoinChatName(currentUtility), prev + chunkValue);
+        }
+        return prev + chunkValue;
+      });
     }
 
     setLoading(false);
-
-    AddChat(JoinChatName(currentUtility), answer);
   };
 
   return (
