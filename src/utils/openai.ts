@@ -1,25 +1,18 @@
 import OpenAI from "openai";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 
-export async function generatePrompts(
-  messages: Array<Object>,
-  apiKey: string
-) {
+export async function generatePrompts(messages: Array<Object>, apiKey: string) {
   const openai = new OpenAI({
     apiKey: apiKey,
   });
 
-  let response;
+  let response = await openai.chat.completions.create({
+    stream: true,
+    model: "gpt-3.5-turbo",
+    messages: messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
+  });
 
-  try {
-    response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages:
-        messages as OpenAI.Chat.Completions.ChatCompletionMessageParam[],
-    });
-  } catch (error) {
-    console.log(error);
-    return "Error";
-  }
+  const stream = OpenAIStream(response);
 
-  return response.choices[0].message.content || "Error";
+  return new StreamingTextResponse(stream);
 }

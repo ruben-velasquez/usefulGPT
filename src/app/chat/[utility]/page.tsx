@@ -71,14 +71,30 @@ export default function UtilityChat({
       }),
     });
   
-    const json = await response.json();
-    const text = json.message.trim();
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
 
-    setAnswer(text);
+    // This data is a ReadableStream
+    const _data = response.body;
+    if (!_data) {
+      return;
+    }
+
+    const reader = _data.getReader();
+    const decoder = new TextDecoder();
+    let done = false;
+
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      const chunkValue = decoder.decode(value);
+      setAnswer((prev) => prev + chunkValue);
+    }
 
     setLoading(false);
 
-    AddChat(JoinChatName(currentUtility), text);
+    AddChat(JoinChatName(currentUtility), answer);
   };
 
   return (

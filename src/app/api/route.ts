@@ -4,11 +4,9 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const body = (await request.json()) as PromptRequest;
 
-  const responseMessage = await generatePrompts(body.messages, body.apiKey);
+  const streamResponse = await generatePrompts(body.messages, body.apiKey);
 
-  return new Promise((resolve) => {
-    resolve(NextResponse.json({ message: responseMessage }));
-  });
+  return streamResponse;
 }
 
 type PromptRequest = {
