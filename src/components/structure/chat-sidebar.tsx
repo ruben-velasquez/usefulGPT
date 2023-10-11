@@ -149,7 +149,7 @@ export default function ChatSidebar() {
             </li>
           ))}
         </ul>
-        <h3 className="text-slate-300 text-base flex items-center gap-2">
+        <h3 className="text-slate-300 text-base flex items-center gap-2 shadow-hideUp">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="icon icon-tabler icon-tabler-history"
@@ -200,7 +200,7 @@ export default function ChatSidebar() {
             </li>
           ))}
         </ul>
-        <div className="w-full mt-auto h-fit p-4 pb-0 border-t border-chatgpt-textBg">
+        <div className="w-full mt-auto h-fit p-4 pb-0 border-t shadow-hideUp border-chatgpt-textBg">
           <ButtonInput
             value={apiKeyItem}
             onChange={handleInputChange}
