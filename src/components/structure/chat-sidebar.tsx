@@ -113,7 +113,7 @@ export default function ChatSidebar() {
           </svg>
           Utilities
         </h3>
-        <ul className="flex flex-col gap-3 overflow-y-scroll">
+        <ul className="flex flex-col h-1/4 gap-3 overflow-y-scroll">
           {utilities.map((utility, index) => (
             <li key={index}>
               <Link
@@ -166,7 +166,7 @@ export default function ChatSidebar() {
           </svg>
           History
         </h3>
-        <ul className="flex flex-col gap-3 flex-grow overflow-y-scroll">
+        <ul className="flex flex-col flex-grow h-1/4 gap-3 overflow-y-scroll">
           {history.chats.map((chat, index) => (
             <li key={index}>
               <Link
@@ -198,7 +198,7 @@ export default function ChatSidebar() {
             </li>
           ))}
         </ul>
-        <div className="w-full h-fit p-4 pb-0 border-t border-chatgpt-textBg">
+        <div className="w-full mt-auto h-fit p-4 pb-0 border-t border-chatgpt-textBg">
           <ButtonInput
             value={apiKeyItem}
             onChange={handleInputChange}
