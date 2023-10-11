@@ -12,6 +12,13 @@ function CreateHistory(): ChatHistory {
   return { chats: [] };
 }
 
+// When the page load it doesn't have access to
+// the localStorage, this function only provide
+// an empty history until the window load
+export function GetEmptyChats(): ChatHistory {
+  return { chats: [] };
+}
+
 export function GetHistoryChats(): ChatHistory {
   const historyText = localStorage.getItem("History");
 

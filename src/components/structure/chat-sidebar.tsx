@@ -4,14 +4,16 @@ import SidebarButton from "../buttons/sidebar-button";
 import { useState, useEffect } from "react";
 import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
-import { GetHistoryChats, DeleteChat } from "@/utils/history";
+import { GetHistoryChats, DeleteChat, GetEmptyChats } from "@/utils/history";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
   const [apiKeyItem, setApiKeyItem] = useState("");
-  const history = GetHistoryChats();
+  const [history, setHistory] = useState(GetEmptyChats());
 
   useEffect(() => {
+    // Give the history chats
+    setHistory(GetHistoryChats());
     // Perform localStorage action
     setApiKeyItem(localStorage.getItem("ApiKey") || "");
   }, []);
