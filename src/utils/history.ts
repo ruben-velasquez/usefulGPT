@@ -7,12 +7,22 @@ export type ConcreteChat = {
   content: string;
 };
 
+function CreateHistory(): ChatHistory {
+  localStorage.setItem("History", JSON.stringify({ chats: [] }));
+  return { chats: [] };
+}
+
 export function GetHistoryChats(): ChatHistory {
   const historyText = localStorage.getItem("History");
 
   if (!historyText) {
-    localStorage.setItem("History", JSON.stringify({ chats: [] }));
-    return { chats: [] };
+    return CreateHistory();
+  }
+
+  try {
+    JSON.parse(historyText);
+  } catch (error) {
+    return CreateHistory();
   }
 
   return JSON.parse(historyText);
