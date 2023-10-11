@@ -15,8 +15,8 @@ export default function AboutUtilities() {
         <Image
           alt="background spiral effect"
           src="/utilities-background.svg"
-          width={800}
-          height={800}
+          width={600}
+          height={600}
         />
       </div>
       <div className="flex flex-col gap-4 justify-center items-left text-left max-w-[500px]">

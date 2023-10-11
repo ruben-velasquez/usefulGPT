@@ -12,7 +12,7 @@ export default function Home() {
           src="/hero-svg-background.svg"
           width={600}
           height={300}
-          className="w-full"
+          className="w-full max-h-[100vh]"
         />
       </div>
       <Header />
