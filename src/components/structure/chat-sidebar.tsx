@@ -6,6 +6,7 @@ import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
 import { ChatContext } from "@/context/chatContext";
 import { useContext } from "react";
+import DeleteChatButton from "../Inputs/delete-chat-button";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
@@ -167,12 +168,12 @@ export default function ChatSidebar() {
           </svg>
           History
         </h3>
-        <ul className="flex flex-col flex-grow h-1/4 gap-3 overflow-y-scroll">
+        <ul className="flex flex-col flex-grow h-1/4 gap-3 overflow-y-scroll overflow-x-hidden">
           {chatHistory.chats.map((chat, index) => (
             <li key={index}>
               <Link
                 href={`/chat/history/${chat.id}`}
-                className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl block"
+                className="hover:bg-chatgpt-gray transition-colors text-white p-3 rounded-xl flex items-center group relative"
               >
                 <h4 className="text-base flex items-center gap-2">
                   <svg
@@ -195,6 +196,7 @@ export default function ChatSidebar() {
                     {chat.title}
                   </span>
                 </h4>
+                <DeleteChatButton chatId={chat.id} />
               </Link>
             </li>
           ))}

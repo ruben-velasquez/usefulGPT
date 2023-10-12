@@ -67,4 +67,6 @@ export function DeleteChat(id: Number) {
   history.chats = filteredChats;
 
   localStorage.setItem("History", JSON.stringify(history));
+
+  return history;
 }
