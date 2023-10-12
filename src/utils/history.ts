@@ -1,4 +1,4 @@
-type ChatHistory = {
+export type ChatHistory = {
   chats: ConcreteChat[];
 };
 export type ConcreteChat = {
@@ -43,7 +43,7 @@ export function GetChatById(id: number): ConcreteChat | undefined {
   return chat;
 }
 
-export function AddChat(title: string, content: string) {
+export function AddChat(title: string, content: string): ChatHistory {
   const history = GetHistoryChats();
 
   const chat: ConcreteChat = {
@@ -55,6 +55,8 @@ export function AddChat(title: string, content: string) {
   history.chats = history.chats.concat([chat]);
 
   localStorage.setItem("History", JSON.stringify(history));
+
+  return history;
 }
 
 export function DeleteChat(id: Number) {

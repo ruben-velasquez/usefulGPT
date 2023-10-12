@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { Gloock } from "next/font/google";
 import { utilities, JoinPrompt, JoinChatName } from "../../../utils/utilities";
-import { AddChat } from "@/utils/history";
 import TextField from "@/components/Inputs/text-field";
 import TextArea from "@/components/Inputs/text-area";
 import Button from "@/components/buttons/chat-button";
 import { CodeblockParser } from "@/utils/codeblock-parser";
 import { useState } from "react";
 import GptLogo from "@/components/logos/gpt-logo";
+import { ChatContext } from "@/context/chatContext";
 
 const gloock = Gloock({
   weight: "400",
@@ -23,6 +23,7 @@ export default function UtilityChat({
 }) {
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
+  const { createChat } = useContext(ChatContext);
 
   const currentUtility = utilities.find(
     (utility) => utility.id === params.utility
@@ -93,7 +94,7 @@ export default function UtilityChat({
       setAnswer((prev) => {
         if (done && !saved) {
           saved = true;
-          AddChat(JoinChatName(currentUtility), prev + chunkValue);
+          createChat(JoinChatName(currentUtility), prev + chunkValue);
         }
         return prev + chunkValue;
       });

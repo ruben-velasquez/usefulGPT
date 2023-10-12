@@ -4,16 +4,15 @@ import SidebarButton from "../buttons/sidebar-button";
 import { useState, useEffect } from "react";
 import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
-import { GetHistoryChats, DeleteChat, GetEmptyChats } from "@/utils/history";
+import { ChatContext } from "@/context/chatContext";
+import { useContext } from "react";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
   const [apiKeyItem, setApiKeyItem] = useState("");
-  const [history, setHistory] = useState(GetEmptyChats());
+  const { chatHistory } = useContext(ChatContext);
 
   useEffect(() => {
-    // Give the history chats
-    setHistory(GetHistoryChats());
     // Perform localStorage action
     setApiKeyItem(localStorage.getItem("ApiKey") || "");
   }, []);
@@ -169,7 +168,7 @@ export default function ChatSidebar() {
           History
         </h3>
         <ul className="flex flex-col flex-grow h-1/4 gap-3 overflow-y-scroll">
-          {history.chats.map((chat, index) => (
+          {chatHistory.chats.map((chat, index) => (
             <li key={index}>
               <Link
                 href={`/chat/history/${chat.id}`}
