@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   generator: "Next.js",
   title: "UsefulGPT",
   colorScheme: "dark",
+  keywords: ["ChatGPT", "IA", "Utilities", "OpenAI"],
   description:
     "This is a sophisticated chatbot interface empowered by OpenAI, designed to provide you with a range of helpful features.",
   creator: "Rubén Velásquez",
