@@ -7,11 +7,9 @@ export default function Button({ href, children, onClick }: ButtonProps) {
     <Link
       href={href || ""}
       onClick={onClick || ((e) => {})}
-      className="bg-slate-200 transition-all hover:shadow-lg hover:shadow-green-500 font-bold py-3 px-8 rounded-full text-slate-900"
+      className="bg-slate-200 transition-all hover:shadow-lg hover:shadow-green-500 font-bold py-3 px-8 rounded-full text-slate-900 flex items-center justify-center gap-2"
     >
-      <button className="flex items-center justify-center gap-2">
         {children}
-      </button>
     </Link>
   );
 }
