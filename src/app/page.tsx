@@ -2,6 +2,7 @@ import Header from "@/components/structure/header";
 import Hero from "@/components/structure/hero";
 import AboutUtilities from "@/components/structure/about-utilities";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -12,12 +13,15 @@ export default function Home() {
           src="/hero-svg-background.svg"
           width={600}
           height={300}
+          priority={true}
           className="w-full max-h-[100vh]"
         />
       </div>
       <Header />
       <Hero />
-      <AboutUtilities />
+      <Suspense fallback={<p>Loading About Utilities...</p>}>
+        <AboutUtilities />
+      </Suspense>
     </>
   )
 }
