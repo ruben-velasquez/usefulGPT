@@ -46,8 +46,18 @@ export function GetChatById(id: number): ConcreteChat | undefined {
 export function AddChat(title: string, content: string): ChatHistory {
   const history = GetHistoryChats();
 
+  let id = history.chats.length;
+
+  for (let i = history.chats.length; i != i + 1; i++) {
+    const existingChat = GetChatById(i);
+    if (!existingChat) {
+      id = i;
+      break;
+    }
+  }
+
   const chat: ConcreteChat = {
-    id: history.chats.length,
+    id: id,
     title: title,
     content: content,
   };
