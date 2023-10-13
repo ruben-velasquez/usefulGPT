@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description:
     "This is a sophisticated chatbot interface empowered by OpenAI, designed to provide you with a range of helpful features.",
   creator: "Rubén Velásquez",
+  openGraph: {
+    title: 'Useful GPT',
+    description: 'Fewer prompts more results',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
