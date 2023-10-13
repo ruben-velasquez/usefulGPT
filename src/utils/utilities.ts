@@ -75,6 +75,42 @@ export const utilities: Utility[] = [
       },
     ],
   },
+  {
+    id: "generate-code",
+    chatName: "Generate Code",
+    name: "Generate Code",
+    system: "Generate code in any programming language. If you can't generate the code, please say: \"Error\". If all goes well, your answer must contain only the resulting code. If the response is ok, you need to return the code between three quotes like this:  '''\ncode\n'''.",
+    prompt: "Generate code in the following programming language: {language}\nCode to Generate: {codeToGenerate}",
+    fields: [
+      {
+        id: "language",
+        name: "Language",
+        type: "text",
+        placeholder: "Enter the programming language",
+      },
+      {
+        id: "codeToGenerate",
+        name: "Code to Generate",
+        type: "textarea",
+        placeholder: "Enter the code to generate",
+      },
+    ],
+  },
+  {
+    id: "recipe",
+    chatName: "Recipe",
+    name: "Recipe",
+    system: "Create recipes for various dishes and desserts. If you can't create the recipe, please say: \"Error\". The response should include the ingredients and the steps to make the recipe.",
+    prompt: "Create a recipe for the following dish or dessert: {dish}",
+    fields: [
+      {
+        id: "dish",
+        name: "Dish",
+        type: "text",
+        placeholder: "Enter the dish or dessert",
+      },
+    ],
+  },
   // Add more utility objects here if needed
 ];
 
