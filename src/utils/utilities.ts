@@ -98,7 +98,7 @@ export const utilities: Utility[] = [
   },
   {
     id: "recipe",
-    chatName: "Recipe",
+    chatName: "Recipe of {dish}",
     name: "Recipe",
     system: "Create recipes for various dishes and desserts. If you can't create the recipe, please say: \"Error\". The response should include the ingredients and the steps to make the recipe.",
     prompt: "Create a recipe for the following dish or dessert: {dish}",
