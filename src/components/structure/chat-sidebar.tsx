@@ -6,12 +6,14 @@ import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
 import { ChatContext } from "@/context/chatContext";
 import { useContext } from "react";
+import { useRouter } from "next/router";
 import DeleteChatButton from "../Inputs/delete-chat-button";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
   const [apiKeyItem, setApiKeyItem] = useState("");
   const { chatHistory } = useContext(ChatContext);
+  const router = useRouter();
 
   useEffect(() => {
     // Perform localStorage action
@@ -55,7 +57,7 @@ export default function ChatSidebar() {
         } flex-col gap-3`}
       >
         <div className="flex gap-2">
-          <SidebarButton className="col-span-2 flex-grow">
+          <SidebarButton className="col-span-2 flex-grow" onClick={() => {router.push("https://github.com/ruben-velasquez/usefulGPT#how-to-add-utilities")}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-plus text-slate-400"
