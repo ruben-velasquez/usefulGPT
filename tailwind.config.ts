@@ -32,14 +32,24 @@ const config: Config = {
           "0%": { transform: "translateX(-20rem)" },
           "100%": { transform: "translateX(0rem)" },
         },
+        phoneHideSidebar: {
+          "0%": { transform: "translateX(0vw)" },
+          "100%": { transform: "translateX(-100rem)" },
+        },
+        phoneShowSidebar: {
+          "0%": { transform: "translateX(-100vw)" },
+          "100%": { transform: "translateX(0vw)" },
+        },
       },
       animation: {
         hideSidebar: "hideSidebar 1s ease-in-out forwards",
         showSidebar: "showSidebar 1s ease-in-out forwards",
+        phoneHideSidebar: "phoneHideSidebar 1s ease-in-out forwards",
+        phoneShowSidebar: "phoneShowSidebar 1s ease-in-out forwards",
       },
       boxShadow: {
-        hideUp: "0px -20px 10px 0px #202123"
-      }
+        hideUp: "0px -20px 10px 0px #202123",
+      },
     },
   },
   plugins: [],

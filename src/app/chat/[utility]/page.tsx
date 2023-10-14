@@ -104,14 +104,14 @@ export default function UtilityChat({
   };
 
   return (
-    <div className="flex items-center justify-center h-full relative flex-grow transition-all">
+    <div className="flex items-center justify-center h-full relative flex-grow transition-all max-w-full">
       <div className="z-10 flex flex-col overflow-y-scroll w-full h-full relative">
         <div className="w-full h-20 p-5 flex items-center justify-center bg-chatgpt-gray sticky top-0 z-10">
           <h1 className={`text-gray-400 text-base ${gloock.className}`}>
             UsefulGPT: {currentUtility?.name}
           </h1>
         </div>
-        <div className="flex-grow relative w-full flex flex-col justify-start items-center text-left text-gray-200 py-5 px-32 bg-chatgpt-textBg">
+        <div className="flex-grow relative w-full flex flex-col justify-start items-center text-left text-gray-200 p-[20px] md:py-5 md:px-32 bg-chatgpt-textBg">
           <GptLogo />
 
           {answer == "" ? (

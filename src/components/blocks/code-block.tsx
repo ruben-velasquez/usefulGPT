@@ -59,7 +59,7 @@ function CodeBlock({ code }: { code: string }) {
           )}
         </button>
       </div>
-      <span className="bg-gray-900 w-full flex-grow p-4 whitespace-pre-wrap">{code}</span>
+      <span className="bg-gray-900 w-full flex-grow p-[10px] md:p-4 overflow-x-scroll whitespace-pre-wrap">{code}</span>
     </code>
   );
 }

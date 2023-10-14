@@ -1,6 +1,6 @@
 export default function GptLogo() {
   return (
-    <div className="absolute left-16 h-10 w-10 flex items-center justify-center bg-gradient-to-b from-green-500 to-emerald-500 rounded-md">
+    <div className="absolute left-16 h-10 w-10 hidden md:flex items-center justify-center bg-gradient-to-b from-green-500 to-emerald-500 rounded-md">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="icon icon-tabler icon-tabler-brand-openai"
