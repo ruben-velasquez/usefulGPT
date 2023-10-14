@@ -34,7 +34,7 @@ const config: Config = {
         },
         phoneHideSidebar: {
           "0%": { transform: "translateX(0vw)" },
-          "100%": { transform: "translateX(-100rem)" },
+          "100%": { transform: "translateX(-100vw)" },
         },
         phoneShowSidebar: {
           "0%": { transform: "translateX(-100vw)" },
