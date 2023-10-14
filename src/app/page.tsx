@@ -3,6 +3,7 @@ import Hero from "@/components/structure/hero";
 import AboutUtilities from "@/components/structure/about-utilities";
 import Image from "next/image";
 import { Suspense } from "react";
+import ContributeSection from "@/components/structure/contribute-section";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
       <Hero />
       <Suspense fallback={<p>Loading About Utilities...</p>}>
         <AboutUtilities />
+      </Suspense>
+      <Suspense fallback={<p>Loading Contribute...</p>}>
+        <ContributeSection />
       </Suspense>
     </>
   )

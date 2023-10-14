@@ -49,6 +49,7 @@ const config: Config = {
       },
       boxShadow: {
         hideUp: "0px -20px 10px 0px #202123",
+        lineDivider: "0px -40px 20px 20px #0006;",
       },
     },
   },
