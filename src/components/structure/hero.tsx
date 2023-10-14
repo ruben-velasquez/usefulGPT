@@ -9,17 +9,17 @@ const gloock = Gloock({
 
 export default function Hero() {
   return (
-    <section className="py-3 md:px-[10vw] min-h-[calc(100vh-3.5rem)] relative flex flex-col gap-4 items-center justify-center">
+    <section className="py-3 px-[20px] md:px-[10vw] min-h-[calc(100vh-3.5rem)] relative flex flex-col gap-4 items-center justify-center">
       <h1
-        className={`${gloock.className} max-w-[600px] text-6xl text-center text-white`}
+        className={`${gloock.className} max-w-[600px] text-4xl md:text-6xl text-center text-white`}
       >
         A personalized <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">experience with AI</span>
       </h1>
-      <p className="text-gray-400">
+      <p className="text-gray-400 text-sm md:text-xl">
         Let the AI tell you stories, make your homeworks and even more awesome
         things.
       </p>
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap justify-center items-center">
         <Button href="/chat">
           <svg
             xmlns="http://www.w3.org/2000/svg"

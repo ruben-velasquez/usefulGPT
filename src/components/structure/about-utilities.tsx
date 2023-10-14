@@ -10,7 +10,7 @@ const gloock = Gloock({
 
 export default function AboutUtilities() {
   return (
-    <section className="py-8 min-h-[calc(100vh-3.5rem)] px-[10px] md:px-4 flex items-center justify-center gap-8 relative">
+    <section className="py-8 min-h-[calc(100vh-3.5rem)] px-[20px] md:px-[10vw] flex flex-col md:flex-row items-center justify-center gap-8 relative">
       <div className="absolute -z-50">
         <Image
           alt="background spiral effect"
@@ -20,13 +20,13 @@ export default function AboutUtilities() {
         />
       </div>
       <div className="flex flex-col gap-4 justify-center items-left text-left max-w-[500px]">
-        <h1 className={`${gloock.className} text-6xl text-white`}>
+        <h1 className={`${gloock.className} text-4xl md:text-6xl text-white`}>
           Get to know the{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">
             utilities
           </span>
         </h1>
-        <p className="text-gray-400 text-xl">
+        <p className="text-gray-400 text-sm md:text-xl">
           Use customized functionalities with tailor-made prompts to get better
           results to your.
         </p>
@@ -53,7 +53,7 @@ export default function AboutUtilities() {
           </Button>
         </div>
       </div>
-      <div className="bg-chatgpt-darkGray w-80 rounded-xl p-4 flex flex-col gap-3">
+      <div className="bg-chatgpt-darkGray w-80 rounded-xl p-4 flex flex-col gap-3 max-w-full">
         <h3 className="text-slate-300 text-lg flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

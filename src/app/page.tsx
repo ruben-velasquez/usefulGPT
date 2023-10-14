@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <>
-      <div className="absolute -top-[50px] -z-50 w-full opacity-25">
+      <div className="absolute -top-[10px] md:-top-[50px] -z-50 w-full opacity-25">
         <Image
           alt="background blur effect"
           src="/hero-svg-background.svg"
