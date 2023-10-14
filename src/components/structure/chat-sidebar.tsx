@@ -6,14 +6,12 @@ import ButtonInput from "../Inputs/button-input";
 import { utilities } from "@/utils/utilities";
 import { ChatContext } from "@/context/chatContext";
 import { useContext } from "react";
-import { useRouter } from "next/router";
 import DeleteChatButton from "../Inputs/delete-chat-button";
 
 export default function ChatSidebar() {
   const [view, setView] = useState(true);
   const [apiKeyItem, setApiKeyItem] = useState("");
   const { chatHistory } = useContext(ChatContext);
-  const router = useRouter();
 
   useEffect(() => {
     // Perform localStorage action
@@ -57,25 +55,27 @@ export default function ChatSidebar() {
         } flex-col gap-3`}
       >
         <div className="flex gap-2">
-          <SidebarButton className="col-span-2 flex-grow" onClick={() => {router.push("https://github.com/ruben-velasquez/usefulGPT#how-to-add-utilities")}}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-plus text-slate-400"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="currentColor"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M12 5l0 14"></path>
-              <path d="M5 12l14 0"></path>
-            </svg>
-            Request Utility
-          </SidebarButton>
+          <Link className="col-span-2 flex-grow" href="https://github.com/ruben-velasquez/usefulGPT#how-to-add-utilities">
+            <SidebarButton className="w-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-plus text-slate-400"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 5l0 14"></path>
+                <path d="M5 12l14 0"></path>
+              </svg>
+              Request Utility
+            </SidebarButton>
+          </Link>
           <SidebarButton onClick={(e) => setView(!view)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
