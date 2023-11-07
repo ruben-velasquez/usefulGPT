@@ -37,8 +37,8 @@ export const utilities: Utility[] = [
       "placeholder": "Enter a task that requires comprehension of Hebrew in AI contexts"
     }
   ]
-}
-``` {
+  },
+  {
     id: "make-a-story",
     chatName: "{title}",
     name: "Make a story",
