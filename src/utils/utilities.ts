@@ -1,5 +1,44 @@
 export const utilities: Utility[] = [
-  {
+{
+  "id": "code-precision",
+  "chatName": "CodeCraft Pro",
+  "name": "Code Precision",
+  "system": "Your response must be strictly code-based when a code task is given. If you are unable to provide precise code, you must say: \"Error\".",
+  "prompt": "Provide exact and precise code solutions in response to coding tasks. The code will encompass areas of expertise in Three.js, Next.js, React, Python, and will demonstrate the capability of handling complex algorithms and system architectures.",
+  "fields": [
+    {
+      "id": "nextjs-task",
+      "name": "Next.js Coding Task",
+      "type": "text",
+      "placeholder": "Enter a specific task for Next.js development"
+    },
+    {
+      "id": "react-task",
+      "name": "React Coding Task",
+      "type": "text",
+      "placeholder": "Enter a specific task for React development"
+    },
+    {
+      "id": "python-task",
+      "name": "Python Coding Task",
+      "type": "text",
+      "placeholder": "Enter a specific task for Python programming"
+    },
+    {
+      "id": "threejs-task",
+      "name": "Three.js Coding Task",
+      "type": "text",
+      "placeholder": "Enter a specific task for Three.js projects"
+    },
+    {
+      "id": "language-comprehension-task",
+      "name": "Language Comprehension Task",
+      "type": "text",
+      "placeholder": "Enter a task that requires comprehension of Hebrew in AI contexts"
+    }
+  ]
+}
+``` {
     id: "make-a-story",
     chatName: "{title}",
     name: "Make a story",
