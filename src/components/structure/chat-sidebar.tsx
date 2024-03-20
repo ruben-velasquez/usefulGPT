@@ -50,8 +50,8 @@ export default function ChatSidebar() {
         </svg>
       </SidebarButton>
       <aside
-        className={`h-[100vh] absolute md:static flex bg-chatgpt-darkGray w-full md:w-80 md:min-w-[20rem] p-4 transition-all z-50 ${
-          view ? "animate-showSidebar md:animate-showSidebar" : "absolute animate-phoneHideSidebar md:animate-hideSidebar"
+        className={`h-[100vh] absolute flex bg-chatgpt-darkGray w-full md:w-80 md:min-w-[20rem] p-4 transition-all z-50 ${
+          view ? "animate-showSidebar md:animate-showSidebar md:static" : "absolute animate-phoneHideSidebar md:animate-hideSidebar"
         } flex-col gap-3`}
       >
         <div className="flex gap-2">
