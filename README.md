@@ -2,8 +2,6 @@
 
 This is a chatbot interface powered by OpenAI API that introduces the utilities where you can create incredible things whithout writing many complex prompts, just using simple interfaces. It also allows you to save the chats in the browser's memory without creating an account.
 
-![Chat Page](https://media.discordapp.net/attachments/835918308166336545/1160345061968588912/UsefulGPT_Code_Translator.png?ex=6534528c&is=6521dd8c&hm=8bbbecee77ac6a7adb4ee95bd3d471dca0b496ab85d2dd0dec097d2408c5895b&=&width=765&height=430)
-
 ## Installation
 To use this project, you must follow the following steps:
 
